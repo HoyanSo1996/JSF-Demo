@@ -1,4 +1,4 @@
-package com.omega.demo;
+package com.omega.chapter;
 
 import javax.faces.bean.ManagedBean;
 

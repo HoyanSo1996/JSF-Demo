@@ -1,4 +1,4 @@
-package com.omega.demo01;
+package com.omega.chapter01;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
