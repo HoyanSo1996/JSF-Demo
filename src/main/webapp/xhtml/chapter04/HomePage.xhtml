@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Home Page</title>
+</h:head>
+
+<!--
+    1.先使用ui:composition定义各个小组件(xhtml)
+    2.定义模版文件(模版文件不直接含有ui:composition, 即小组件不能直接充当模版文件),
+        使用ui:insert声明要插入小组件, 并声明组件名/区域名
+        在ui:insert里, 使用ui:include声明要插入的小组件(xhtml)
+    3.定义正式文件,
+        在ui:composition的template属性引入模版文件.
+        在ui:composition里, 使用ui:define指定要在哪个区域插入内容.
+-->
+<h:body>
+    <ui:composition template="templates/CommonTemplate.xhtml">
+        <!--使用ui:param标签定义一个参数, 将参数传递给CommonTemplate模版(整体模版)-->
+        <ui:param name="title" value="Home"/>
+        <ui:define name="content">
+            <br/><br/>
+            <h:link value="Page 1" outcome="Page1"/>&nbsp;&nbsp;
+            <h:link value="Page 2" outcome="Page2"/>
+            <br/><br/>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
