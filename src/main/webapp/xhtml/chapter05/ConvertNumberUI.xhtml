@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Home Page</title>
+</h:head>
+
+<h:body>
+    <h2>ConvertNumber UI</h2>
+    <table border="1" cellspacing="2" cellpadding="2">
+        <tr>
+            <th>Parameter</th>
+            <th>Value Passed</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <!--数字(默认), 货币或百分比-->
+            <td>type="currency"</td>
+            <td>$100</td>
+            <td>
+                <h:outputText value="$100">
+                    <f:convertNumber type="currency" currencySymbol="$"/>
+                </h:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>type="percent"</td>
+            <td>100.12345%</td>
+            <td>
+                <h:outputText value="100.12345%">
+                    <f:convertNumber type="percent"/>
+                </h:outputText>
+            </td>
+        </tr>
+        <tr>
+            <!--格式化模式, 如java.text.DecimalFormat中所定义-->
+            <td>pattern="#000.000"</td>
+            <td>100.12345</td>
+            <td>
+                <h:outputText value="100.12345">
+                    <f:convertNumber pattern="#000.000"/>
+                </h:outputText>
+            </td>
+        </tr>
+        <tr>
+            <!--将数字转换为字符串时, 要保留的最小小数位数为 2-->
+            <td>minFractionDigits="2"</td>
+            <td>100.123456789</td>
+            <td>
+                <h:outputText value="100.123456789">
+                    <f:convertNumber minFractionDigits="4"/>
+                </h:outputText>
+            </td>
+        </tr>
+    </table>
+</h:body>
+
+</html>
