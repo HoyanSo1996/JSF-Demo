@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Ajax Tags UI</title>
+</h:head>
+
+<h:body>
+    <h2>Ajax Example</h2>
+    <h:form>
+        <h:inputText id="inputName" value="#{ajaxTagsController.name}"/>
+        <h:commandButton value="Show Message">
+            <!--
+                execute：应包含在Ajax请求中的组件的以空格分隔的ID列表。
+                render：在Ajax请求之后将更新的组件的以空格分隔的ID列表。
+
+                对于<p:ajax>标签的process和update属性,可以使用多个选项来指定要处理和更新的组件。
+                process相当于execute, update相当于render.
+                process属性的可选项:
+                  @this:处理当前组件自身
+                  @form:处理当前表单内的所有组件
+                  @al1:处理所有组件, 不论它们在哪个表单内。
+                  @none:不处理任何组件。
+                  @([组件 ID]):处理指定D 的组件。
+            -->
+            <f:ajax execute="inputName" render="outputMessage1 outputMessage2"/>
+        </h:commandButton>
+        <h2><h:outputText id="outputMessage1" value="#{ajaxTagsController.welcomeMessage}"/></h2>
+        <h2><h:outputText id="outputMessage2" value="#{ajaxTagsController.successMessage}"/></h2>
+    </h:form>
+</h:body>
+
+</html>
