@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Validator Tags UI</title>
+</h:head>
+
+<h:body>
+    <h2>h:validateLength - 验证字符串的长度</h2>
+    <h:form>
+        <h:inputText id="nameInput" value="#{user.name}" label="name">
+            <f:validateLength minimum="5" maximum="8"/>
+        </h:inputText>
+        <h:commandButton value="submit"/><br/>
+        <h:message for="nameInput" style="color:red"/>
+        <h:outputText id="successOrFailure1" value="PASS" rendered="#{(user.name != null) ? true : false}"/>
+    </h:form>
+    <hr/>
+
+
+    <h2>h:validateLongRange - 验证数值的范围</h2>
+    <h:form>
+        <h:inputText id="ageInput" value="#{user.age}" label="age">
+            <f:validateLongRange minimum="5" maximum="200"/>
+        </h:inputText>
+        <h:commandButton value="submit"/><br/>
+        <h:message for="ageInput" style="color:red"/>
+        <h:outputText id="successOrFailure2" value="PASS" rendered="#{(user.age != 0) ? true : false}"/>
+    </h:form>
+
+
+    <h2>h:validateDoubleRange - 验证浮点值的范围</h2>
+    <h:form>
+        <h:inputText id="salaryInput" value="#{user.salary}" label="age">
+            <f:validateDoubleRange minimum="1000.50" maximum="10000.50"/>
+        </h:inputText>
+        <h:commandButton value="submit"/><br/>
+        <h:message for="salaryInput" style="color:red"/>
+        <h:outputText id="successOrFailure3" value="PASS" rendered="#{(user.salary != 0) ? true : false}"/>
+    </h:form>
+
+
+    <h2>h:validateRegex - 使用给定的正则表达式验证JSF组件</h2>
+    <!-- password contains lower case letters only and.
+    length of the password should be greater than 6. -->
+    <h:form>
+        <h:inputSecret id="emailInput" value="#{user.email}" label="email">
+            <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+        </h:inputSecret>
+        <h:commandButton value="submit"/><br/>
+        <h:message for="emailInput" style="color:red"/>
+    </h:form>
+</h:body>
+
+</html>
