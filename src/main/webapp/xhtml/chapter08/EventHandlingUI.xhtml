@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Event Handling UI</title>
+</h:head>
+
+<h:body>
+    <!-- 值变化监听器 -->
+    <h1>ValueChangeListener Examples</h1>
+    <hr/>
+    <h:form>
+        <!--方法1(推荐)-->
+        <h3>Method Binding</h3>
+        <h:panelGrid columns="2">
+            Selected locale :
+            <h:selectOneMenu value="#{valueChangeListenerController.selectedCountry}"
+                             onchange="submit()"
+                             valueChangeListener="#{valueChangeListenerController.localeChanged}">
+                <f:selectItems value="#{valueChangeListenerController.countries}"/>
+            </h:selectOneMenu>
+            Country Name :
+            <h:outputText id="country" value="#{valueChangeListenerController.selectedCountry}" size="20"/>
+        </h:panelGrid>
+    </h:form>
+    <hr/>
+
+    <h:form>
+        <!--方法2-->
+        <h3>ValueChangeListener interface</h3>
+        <h:panelGrid columns="2">
+            Selected locale :
+            <h:selectOneMenu value="#{valueChangeListenerController.selectedCountry}"
+                             onchange="submit()">
+                <f:selectItems value="#{valueChangeListenerController.countries}"/>
+                <f:valueChangeListener type="com.omega.chapter08.listener.CustomValueChangeListener"/>
+            </h:selectOneMenu>
+            Country Name :
+            <h:outputText id="country1" value="#{valueChangeListenerController.selectedCountry}" size="20"/>
+        </h:panelGrid>
+    </h:form>
+    <hr/>
+
+
+    <!-- 行为变化监听器 -->
+    <h1>ActionListener Examples</h1>
+    <hr/>
+    <h:form>
+        <!--方法1(推荐)-->
+        <h2>Method Binding</h2>
+        <h:commandButton value="Submit"
+                         actionListener="#{actionChangeListenerController.increase}">
+        </h:commandButton>&nbsp;&nbsp;&nbsp;
+        <h:outputText id="msg1" value="#{actionChangeListenerController.value}"/>
+    </h:form>
+    <hr/>
+
+    <h:form>
+        <!--方法2-->
+        <h2>ActionListener interface</h2>
+        <h:commandButton value="Submit">
+            <f:actionListener type="com.omega.chapter08.listener.CustomActionListener"/>
+        </h:commandButton>&nbsp;&nbsp;&nbsp;
+        <h:outputText id="msg2" value="#{actionChangeListenerController.value}"/>
+    </h:form>
+    <hr/>
+
+    <!-- 系统事件监听器-->
+    <h1>Application Events Examples</h1>
+    <hr/>
+    <h2>Method Binding</h2>
+    <f:event listener="#{systemEventListenerController.handleEvent}" type="preRenderView"/>
+    <h:outputText id="msg3" value="#{systemEventListenerController.data}"/>
+
+</h:body>
+
+</html>

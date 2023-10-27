@@ -20,4 +20,28 @@
             <to-view-id>/xhtml/chapter02/Page2.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+
+
+    <!--SystemEventListener-->
+    <!--实现SystemEventListener接口并在faces-config.xml中注册system-event-listener类-->
+    <application>
+        <!-- Application Startup -->
+        <system-event-listener>
+            <system-event-listener-class>
+                com.omega.chapter08.listener.CustomSystemEventListener
+            </system-event-listener-class>
+            <system-event-class>
+                javax.faces.event.PostConstructApplicationEvent
+            </system-event-class>
+        </system-event-listener>
+        <!-- Before Application is to shut down -->
+        <system-event-listener>
+            <system-event-listener-class>
+                com.omega.chapter08.listener.CustomSystemEventListener
+            </system-event-listener-class>
+            <system-event-class>
+                javax.faces.event.PreDestroyApplicationEvent
+            </system-event-class>
+        </system-event-listener>
+    </application>
 </faces-config>
