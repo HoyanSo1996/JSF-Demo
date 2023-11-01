@@ -42,7 +42,7 @@ public class NavigationController implements Serializable {
         this.pageId = pageId;
     }
 
-    public String showPage() {
+    public String showPage(String pageId) {
         switch (pageId) {
             case "1":
                 return "Page1";

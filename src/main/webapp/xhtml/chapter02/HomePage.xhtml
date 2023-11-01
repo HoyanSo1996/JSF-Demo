@@ -31,14 +31,14 @@
     <div>
         <h2>条件导航</h2>
         <h:form>
-            <h:commandLink value="Page1" action="#{navigationController.showPage}">
-                <f:param name="pageId" value="1"/>    <!--将pageId作为请求参数传递给JSF UI component-->
+            <h:commandLink value="Page1" action="#{navigationController.showPage(1)}">
+<!--                <f:param name="pageId" value="1"/>    &lt;!&ndash;将pageId作为请求参数传递给JSF UI component&ndash;&gt;-->
             </h:commandLink><br/>
-            <h:commandLink value="Page2" action="#{navigationController.showPage}">
-                <f:param name="pageId" value="2"/>
+            <h:commandLink value="Page2" action="#{navigationController.showPage(2)}">
+<!--                <f:param name="pageId" value="2"/>-->
             </h:commandLink><br/>
-            <h:commandLink value="HomePage" action="#{navigationController.showPage}">
-                <f:param name="pageId" value="3"/>
+            <h:commandLink value="HomePage" action="#{navigationController.showPage(3)}">
+<!--                <f:param name="pageId" value="3"/>-->
             </h:commandLink>
         </h:form>
         <br/>
